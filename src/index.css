@@ -1,0 +1,8 @@
+.inputForm {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.inputForm ul {
+  list-style-type: none;
+}
