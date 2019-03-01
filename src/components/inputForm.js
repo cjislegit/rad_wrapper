@@ -1,24 +1,24 @@
 import React from 'react';
 
-const InputForm = () => {
+const InputForm = props => {
   return (
-    <form className='inputForm'>
-      <div className='inputFormLeft'>
+    <form className="inputForm">
+      <div className="inputFormLeft">
         <div>Enter Keywords</div>
-        <textarea />
+        <textarea value={props.keywords} onChange={props.handleChange} />
       </div>
-      <div className='inoutFomrRight'>
+      <div className="inoutFomrRight">
         <ul>
           <li>
-            <input type='checkbox' />
+            <input type="checkbox" />
             Exact
           </li>
           <li>
-            <input type='checkbox' />
+            <input type="checkbox" />
             Phrase
           </li>
           <li>
-            <input type='checkbox' />
+            <input type="checkbox" />
             Broad
           </li>
         </ul>
