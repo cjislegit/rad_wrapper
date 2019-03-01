@@ -3,10 +3,10 @@ import React from 'react';
 const InputForm = () => {
   return (
     <form className="inputForm">
-      <div className="inputFormRight">
+      <div className="inputFormLeft">
         <textarea />
       </div>
-      <div className="inoutFomrLeft">
+      <div className="inoutFomrRight">
         <ul>
           <li>
             <input type="checkbox" />
