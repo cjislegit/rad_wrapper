@@ -15,6 +15,7 @@ nav {
 .inputForm {
   display: grid;
   grid-template-columns: auto auto;
+  padding: 50px 0 50px 0;
 }
 
 .inputForm ul {
@@ -27,9 +28,29 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.inputFormLeft textarea {
+  height: 75%;
+  width: 50%;
 }
 
 .inputFormRight {
   display: flex;
   justify-content: left;
+}
+
+/*Output Styling */
+.keywordOutput {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.keywordOutput textarea {
+  width: 50%;
+  height: 263px;
 }
