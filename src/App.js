@@ -6,7 +6,8 @@ import KeywordOutput from './components/keywordOutput';
 
 class App extends Component {
   state = {
-    inputFormTextarea: ''
+    inputFormTextarea: '',
+    keywordArray: []
   };
 
   render() {
@@ -17,12 +18,22 @@ class App extends Component {
       });
     };
 
+    const handleClick = event => {
+      event.preventDefault();
+      let arraryHolder = this.state.inputFormTextarea.split('\n');
+      this.setState({
+        keywordArray: 'arraryHolder'
+      });
+      console.log(this.state.keywordArray);
+    };
+
     return (
       <div className="App">
         <NavBar />
         <InputForm
           keywords={this.state.inputFormTextarea}
           handleChange={handleChange}
+          handleClick={handleClick}
         />
         <KeywordOutput />
       </div>

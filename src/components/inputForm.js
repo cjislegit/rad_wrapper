@@ -22,7 +22,7 @@ const InputForm = props => {
             Broad
           </li>
         </ul>
-        <button>Submit</button>
+        <button onClick={props.handleClick}>Submit</button>
       </div>
     </form>
   );
