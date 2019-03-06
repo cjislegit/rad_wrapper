@@ -1,10 +1,10 @@
 import React from 'react';
 
-const KeywordOutput = () => {
+const KeywordOutput = props => {
   return (
-    <div className='keywordOutput'>
+    <div className="keywordOutput">
       <div>Wrapped Keywords</div>
-      <textarea />
+      <textarea value={props.wrappedKeywords} />
     </div>
   );
 };

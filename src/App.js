@@ -7,7 +7,8 @@ import KeywordOutput from './components/keywordOutput';
 class App extends Component {
   state = {
     inputFormTextarea: '',
-    keywordArray: []
+    keywordArray: [],
+    wrappedKeywords: ''
   };
 
   render() {
@@ -20,9 +21,12 @@ class App extends Component {
 
     const handleClick = event => {
       event.preventDefault();
+      let keywordArray = this.state.keywordArray;
       let arraryHolder = this.state.inputFormTextarea.split('\n');
+      keywordArray.push(arraryHolder);
       this.setState({
-        keywordArray: 'arraryHolder'
+        keywordArray: arraryHolder,
+        wrappedKeywords: keywordArray
       });
       console.log(this.state.keywordArray);
     };
@@ -35,7 +39,7 @@ class App extends Component {
           handleChange={handleChange}
           handleClick={handleClick}
         />
-        <KeywordOutput />
+        <KeywordOutput wrappedKeywords={this.state.wrappedKeywords} />
       </div>
     );
   }
