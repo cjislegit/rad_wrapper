@@ -10,15 +10,15 @@ const InputForm = props => {
       <div className="inoutFomrRight">
         <ul>
           <li>
-            <input type="checkbox" />
+            <input type="checkbox" checked={props.exactChecked} />
             Exact
           </li>
           <li>
-            <input type="checkbox" />
+            <input type="checkbox" checked={props.phraseChecked} />
             Phrase
           </li>
           <li>
-            <input type="checkbox" />
+            <input type="checkbox" checked={props.broadChecked} />
             Broad
           </li>
         </ul>

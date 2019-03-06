@@ -8,7 +8,10 @@ class App extends Component {
   state = {
     inputFormTextarea: '',
     keywordArray: [],
-    wrappedKeywords: ''
+    wrappedKeywords: '',
+    exactChecked: true,
+    phraseChecked: true,
+    broadChcecked: false
   };
 
   render() {
@@ -36,6 +39,9 @@ class App extends Component {
         <NavBar />
         <InputForm
           keywords={this.state.inputFormTextarea}
+          exactChecked={this.state.exactChecked}
+          phraseChecked={this.state.phraseChecked}
+          broadChcecked={this.state.broadChecked}
           handleChange={handleChange}
           handleClick={handleClick}
         />
