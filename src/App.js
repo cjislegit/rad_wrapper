@@ -24,13 +24,17 @@ class App extends Component {
 
     const handleClick = event => {
       event.preventDefault();
+      //Replaces commas with line breaks
+      let outPut = this.state.inputFormTextarea.replace(/,/g, '\n');
       let keywordArray = this.state.keywordArray;
+      //Makes string into array
       let arraryHolder = this.state.inputFormTextarea.split('\n');
       keywordArray.push(arraryHolder);
       this.setState({
         keywordArray: arraryHolder,
         wrappedKeywords: keywordArray
       });
+      console.log(outPut);
     };
 
     const handleCheck = event => {
