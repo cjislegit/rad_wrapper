@@ -31,7 +31,13 @@ class App extends Component {
         keywordArray: arraryHolder,
         wrappedKeywords: keywordArray
       });
-      console.log(this.state.keywordArray);
+    };
+
+    const handleCheck = event => {
+      const { name, checked } = event.target;
+      this.setState({
+        [name]: checked
+      });
     };
 
     return (
@@ -44,6 +50,7 @@ class App extends Component {
           broadChcecked={this.state.broadChecked}
           handleChange={handleChange}
           handleClick={handleClick}
+          handleCheck={handleCheck}
         />
         <KeywordOutput wrappedKeywords={this.state.wrappedKeywords} />
       </div>
