@@ -7,11 +7,10 @@ import KeywordOutput from './components/keywordOutput';
 class App extends Component {
   state = {
     inputFormTextarea: '',
-    keywordArray: [],
     wrappedKeywords: '',
     exactChecked: true,
     phraseChecked: true,
-    broadChcecked: false
+    broadChecked: false
   };
 
   render() {
@@ -24,17 +23,31 @@ class App extends Component {
 
     const handleClick = event => {
       event.preventDefault();
-      //Replaces commas with line breaks
-      let outPut = this.state.inputFormTextarea.replace(/,/g, '\n');
-      let keywordArray = this.state.keywordArray;
-      //Makes string into array
-      let arraryHolder = this.state.inputFormTextarea.split('\n');
-      keywordArray.push(arraryHolder);
+      let outPut = newOutPut(this.state.inputFormTextarea);
       this.setState({
-        keywordArray: arraryHolder,
-        wrappedKeywords: keywordArray
+        wrappedKeywords: outPut
       });
-      console.log(outPut);
+    };
+
+    const newOutPut = s => {
+      let finalArray = [];
+      let newArray = s.replace(/,|\n/g, '+').split('+');
+      if (this.state.exactChecked) {
+        newArray.forEach(element => {
+          finalArray.push('[' + element + ']');
+        });
+      }
+      if (this.state.phraseChecked) {
+        newArray.forEach(element => {
+          finalArray.push('"' + element + '"');
+        });
+      }
+      if (this.state.broadChecked) {
+        newArray.forEach(element => {
+          finalArray.push(element);
+        });
+      }
+      return finalArray.toString().replace(/,/g, '\n');
     };
 
     const handleCheck = event => {
@@ -45,7 +58,7 @@ class App extends Component {
     };
 
     return (
-      <div className="App">
+      <div className='App'>
         <NavBar />
         <InputForm
           keywords={this.state.inputFormTextarea}
