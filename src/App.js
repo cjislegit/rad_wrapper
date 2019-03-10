@@ -31,7 +31,10 @@ class App extends Component {
 
     const newOutPut = s => {
       let finalArray = [];
-      let newArray = s.replace(/,|\n/g, '+').split('+');
+      let newArray = s
+        .replace(/,/g, '')
+        .replace(/\n/g, '+')
+        .split('+');
       if (this.state.exactChecked) {
         newArray.forEach(element => {
           finalArray.push('[' + element + ']');
