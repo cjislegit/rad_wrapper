@@ -10,7 +10,8 @@ class App extends Component {
     wrappedKeywords: '',
     exactChecked: true,
     phraseChecked: true,
-    broadChecked: false
+    broadChecked: false,
+    broadModifiedChecked: false
   };
 
   render() {
@@ -45,6 +46,20 @@ class App extends Component {
           finalArray.push('"' + element + '"');
         });
       }
+      if (this.state.broadModifiedChecked) {
+        newArray.forEach(element => {
+          //Break element into array
+          let newElement = element.split(' ');
+          //Add + to each array element
+          newElement.forEach((e, index, array) => {
+            array[index] = '+' + e;
+          });
+
+          //Turn element back into string
+          newElement = newElement.toString().replace(/,/, ' ');
+          finalArray.push(newElement);
+        });
+      }
       if (this.state.broadChecked) {
         newArray.forEach(element => {
           finalArray.push(element);
@@ -61,7 +76,7 @@ class App extends Component {
     };
 
     return (
-      <div className='App'>
+      <div className="App">
         <NavBar />
         <InputForm
           keywords={this.state.inputFormTextarea}

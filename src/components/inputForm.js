@@ -36,6 +36,15 @@ const InputForm = props => {
             />
             Broad
           </li>
+          <li>
+            <input
+              name="broadModifiedChecked"
+              type="checkbox"
+              onChange={props.handleCheck}
+              checked={props.broadModifiedChecked}
+            />
+            Broad Modified
+          </li>
         </ul>
         <button onClick={props.handleClick}>Submit</button>
       </div>
